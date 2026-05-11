@@ -184,42 +184,18 @@
     const SKIPPED_SLIDES = [2];
 
     const TABLE_OF_CONTENTS = [
-      { slide: 3, title: "Overview" },
-      { slide: 4, title: "Rynly Picking App Home Page" },
-      { slide: 5, title: "New Order- View Available Orders" },
-      { slide: 6, title: "Accepting an Order" },
-      { slide: 7, title: "Order Picking Workflow" },
-      { slide: 8, title: "Substitutions" },
-      { slide: 9, title: "Substitutions Price Eligibility for Chop Chop and Just Eat" },
-      { slide: 10, title: "Uber Eats Substitution: Customer Desired" },
-      { slide: 11, title: "Uber Eats Substitutions: Picker Discretion" },
-      { slide: 12, title: "Uber Eats Substitution: Alternative Proposed" },
-      { slide: 13, title: "Uber Eats Substitution: Requires customer approval" },
-      { slide: 14, title: "Deliveroo Substitutions" },
-      { slide: 15, title: "Deliveroo Substitutions cont." },
-      { slide: 16, title: "Meal Deals- Bundles" },
-      { slide: 17, title: "Meal Deals- Unavailable Items" },
-      { slide: 18, title: "Picking Dashboard" },
-      { slide: 19, title: "Managing Multiple Item Quantity" },
-      { slide: 20, title: "Pick Multiple Orders at Once" },
-      { slide: 21, title: "Pick Multiple Orders - Details" },
-      { slide: 22, title: "Undo a Picked Item / Revert order back to available" },
-      { slide: 23, title: "Manage an Order" },
-      { slide: 24, title: "Cancel an Order" },
-      { slide: 25, title: "Complete Order" },
-      { slide: 26, title: "Bag Scanning Capability" },
-      { slide: 27, title: "Picking while Bag Scanning is Enabled" },
-      { slide: 28, title: "Cold-Chain Alert" },
-      { slide: 29, title: "Chop Chop Payment Errors" },
-      { slide: 30, title: "Just Eat Order- Amended Order Won’t Complete" },
-      { slide: 31, title: "Chop Chop Orders" },
-      { slide: 32, title: "Offline Uber Eats to Close Stores from New Orders" },
-      { slide: 33, title: "Turn on Busy Mode for Uber Eats Orders" },
-      { slide: 34, title: "Manage Chop Chop Delivery Job" },
-      { slide: 35, title: "Uber Eats Request Extra Driver" },
-      { slide: 36, title: "Navigate History Section" },
-      { slide: 37, title: "Order and Delivery History Details" },
-      { slide: 38, title: "App Help Center & Settings" }
+      { slide: 3, title: "Chapter 1: Overview and home page" },
+      { slide: 5, title: "Chapter 2: Viewing and accepting orders" },
+      { slide: 7, title: "Chapter 3: Picking workflow" },
+      { slide: 8, title: "Chapter 4: Substitutions" },
+      { slide: 16, title: "Chapter 5: Meal deals and unavailable items" },
+      { slide: 18, title: "Chapter 6: Dashboard and item quantities" },
+      { slide: 20, title: "Chapter 7: Picking multiple orders" },
+      { slide: 22, title: "Chapter 8: Undoing, managing and cancelling orders" },
+      { slide: 25, title: "Chapter 9: Completing orders and bag scanning" },
+      { slide: 28, title: "Chapter 10: Alerts and payment/order errors" },
+      { slide: 31, title: "Chapter 11: Marketplace-specific order actions" },
+      { slide: 36, title: "Chapter 12: Order history and app settings" }
     ];
 
     const slidesContainer = document.getElementById("slides");
@@ -255,8 +231,8 @@
 
       toc.innerHTML = `
         <div class="toc-header">
-          <h2 class="toc-title">Table of contents</h2>
-          <p class="toc-subtitle">Tap a section to jump straight to that part of the guide.</p>
+          <h2 class="toc-title">Sections</h2>
+          <p class="toc-subtitle">Tap a chapter to jump to that part of the guide.</p>
         </div>
         <div class="toc-list">
           ${TABLE_OF_CONTENTS.map(item => `
