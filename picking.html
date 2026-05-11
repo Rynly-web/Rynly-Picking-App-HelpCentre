@@ -59,6 +59,27 @@
       margin-bottom: 18px;
     }
 
+    .chapter-header {
+      margin: 26px 0 12px;
+      padding: 14px;
+      background: #f7f7f8;
+      border: 1px solid #e8e8ea;
+      border-radius: 12px;
+    }
+
+    .chapter-title {
+      font-size: 17px;
+      font-weight: 750;
+      margin: 0 0 4px;
+    }
+
+    .chapter-summary {
+      font-size: 13px;
+      line-height: 1.4;
+      opacity: 0.75;
+      margin: 0;
+    }
+
     .slide-image {
       width: 100%;
       height: auto;
@@ -127,6 +148,14 @@
       font-weight: 600;
     }
 
+    .toc-chapter-summary {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
     .back-to-toc {
       display: inline-block;
       margin-top: 8px;
@@ -174,8 +203,9 @@
       Easy update area:
       - Image files must be named: Slide1.png, Slide3.png, Slide4.png, etc.
       - Slide 2 is intentionally skipped.
-      - To add/change table of contents labels, update TABLE_OF_CONTENTS below.
-      - To extend the guide later, update LAST_SLIDE and add new entries.
+      - To add/change chapters, update CHAPTERS below.
+      - Each chapter has a start slide, end slide, title and short summary.
+      - To extend the guide later, update LAST_SLIDE and add/update chapters.
     */
 
     const IMAGE_BASE_PATH = "images/picking/";
@@ -183,27 +213,83 @@
     const LAST_SLIDE = 38;
     const SKIPPED_SLIDES = [2];
 
-    const TABLE_OF_CONTENTS = [
-      { slide: 3, title: "Chapter 1: Overview and home page" },
-      { slide: 5, title: "Chapter 2: Viewing and accepting orders" },
-      { slide: 7, title: "Chapter 3: Picking workflow" },
-      { slide: 8, title: "Chapter 4: Substitutions" },
-      { slide: 16, title: "Chapter 5: Meal deals and unavailable items" },
-      { slide: 18, title: "Chapter 6: Dashboard and item quantities" },
-      { slide: 20, title: "Chapter 7: Picking multiple orders" },
-      { slide: 22, title: "Chapter 8: Undoing, managing and cancelling orders" },
-      { slide: 25, title: "Chapter 9: Completing orders and bag scanning" },
-      { slide: 28, title: "Chapter 10: Alerts and payment/order errors" },
-      { slide: 31, title: "Chapter 11: Marketplace-specific order actions" },
-      { slide: 36, title: "Chapter 12: Order history and app settings" }
+    const CHAPTERS = [
+      {
+        start: 3,
+        end: 7,
+        title: "Chapter 1: Getting started",
+        summary: "Overview of the Rynly Picking App home page, available orders, accepting an order and the basic picking workflow."
+      },
+      {
+        start: 8,
+        end: 15,
+        title: "Chapter 2: Substitutions",
+        summary: "Covers substitution types, price eligibility, customer approval, picker discretion, proposed alternatives and channel-specific substitution behaviour."
+      },
+      {
+        start: 16,
+        end: 19,
+        title: "Chapter 3: Meal deals, dashboard and item quantities",
+        summary: "Explains bundled meal deals, unavailable items, the picking dashboard and managing multiple quantities of the same item."
+      },
+      {
+        start: 20,
+        end: 24,
+        title: "Chapter 4: Managing orders",
+        summary: "Covers picking multiple orders, viewing order details, undoing picked items, reverting orders, managing orders and cancellation."
+      },
+      {
+        start: 25,
+        end: 28,
+        title: "Chapter 5: Completing orders and bag scanning",
+        summary: "Explains completing an order, bag scanning, pick scan/pack scan behaviour and cold-chain alerts."
+      },
+      {
+        start: 29,
+        end: 35,
+        title: "Chapter 6: Channel-specific issues and actions",
+        summary: "Covers Chop Chop, Just Eat and Uber Eats actions, including payment errors, amended orders, busy mode, delivery jobs and extra drivers."
+      },
+      {
+        start: 36,
+        end: 38,
+        title: "Chapter 7: History, help and settings",
+        summary: "Shows how to use order history, delivery history, the app Help Center and settings."
+      }
     ];
 
     const slidesContainer = document.getElementById("slides");
+
+    function getChapterForSlide(slideNumber) {
+      return CHAPTERS.find(chapter => chapter.start === slideNumber);
+    }
+
+    function isEndOfChapter(slideNumber) {
+      return CHAPTERS.some(chapter => chapter.end === slideNumber);
+    }
+
+    function createChapterHeader(chapter) {
+      const header = document.createElement("div");
+      header.className = "chapter-header";
+
+      header.innerHTML = `
+        <h2 class="chapter-title">${chapter.title}</h2>
+        <p class="chapter-summary">${chapter.summary}</p>
+      `;
+
+      return header;
+    }
 
     function createSlide(slideNumber) {
       const section = document.createElement("section");
       section.className = "slide-section";
       section.id = `slide-${slideNumber}`;
+
+      const chapter = getChapterForSlide(slideNumber);
+
+      if (chapter) {
+        section.appendChild(createChapterHeader(chapter));
+      }
 
       const img = document.createElement("img");
       img.className = "slide-image";
@@ -213,7 +299,7 @@
 
       section.appendChild(img);
 
-      if (slideNumber !== FIRST_SLIDE) {
+      if (isEndOfChapter(slideNumber)) {
         const backToToc = document.createElement("a");
         backToToc.className = "back-to-toc";
         backToToc.href = "#table-of-contents";
@@ -235,10 +321,13 @@
           <p class="toc-subtitle">Tap a chapter to jump to that part of the guide.</p>
         </div>
         <div class="toc-list">
-          ${TABLE_OF_CONTENTS.map(item => `
-            <a class="toc-link" href="#slide-${item.slide}">
-              <span class="toc-slide-number">${item.slide}</span>
-              <span class="toc-slide-title">${item.title}</span>
+          ${CHAPTERS.map(chapter => `
+            <a class="toc-link" href="#slide-${chapter.start}">
+              <span class="toc-slide-number">${chapter.start}</span>
+              <span class="toc-slide-title">
+                ${chapter.title}
+                <span class="toc-chapter-summary">${chapter.summary}</span>
+              </span>
             </a>
           `).join("")}
         </div>
