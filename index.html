@@ -1,388 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rynly Help Centre</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #fff;
-      color: #111;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 0 0 20px;
-    }
-
-    h1 {
-      font-size: 24px;
-      line-height: 1.2;
-      margin: 0;
-      flex: 1;
-    }
-
-    .logo {
-      height: 24px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    h2 {
-      font-size: 18px;
-      margin: 28px 0 12px;
-    }
-
-    .list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px;
-      border: 1px solid #e6e6e6;
-      border-radius: 10px;
-      text-decoration: none;
-      color: inherit;
-      background: #fff;
-    }
-
-    .item:active {
-      transform: scale(0.99);
-    }
-
-    .title {
-      font-weight: 600;
-    }
-
-    .meta {
-      font-size: 12px;
-      opacity: 0.7;
-      margin-top: 4px;
-    }
-
-    .arrow {
-      font-size: 18px;
-      opacity: 0.6;
-      margin-left: 12px;
-      flex-shrink: 0;
-    }
-
-    .faq-list {
-      display: grid;
-    }
-
-    details {
-      border-bottom: 1px solid #d9d9d9;
-      padding: 0;
-      margin: 0;
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-weight: 600;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .summary-text {
-      flex: 1;
-    }
-
-    .dropdown-arrow {
-      font-size: 16px;
-      opacity: 0.65;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-
-    .answer {
-      padding: 0 0 14px 0;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .answer p {
-      margin: 0 0 12px 0;
-    }
-
-    .answer p:last-child {
-      margin-bottom: 0;
-    }
-
-    .answer img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 12px;
-      display: block;
-    }
-
-    .footer {
-      margin-top: 24px;
-      font-size: 12px;
-      opacity: 0.7;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F9F4ED">
+  <meta name="description" content="Help and training for Rynly Picking App users.">
+  <title>Help Centre | Rynly</title>
+  <link rel="icon" href="assets/images/brand/rynly-badge-fullcolor.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=7">
+  <link rel="stylesheet" href="assets/css/refinements.css?v=7">
+  <link rel="stylesheet" href="assets/css/search-labels.css?v=11">
+  <link rel="stylesheet" href="assets/css/content-loader.css?v=12">
+  <script src="assets/js/media-settings.js?v=12" defer></script>
+  <script src="assets/js/content-loader.js?v=17" defer></script>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Help Centre</h1>
-      <img src="images/logo/rynly-logo.png" alt="Rynly logo" class="logo" />
-    </div>
+  <!-- Self-contained SVG icons: no icon-library CDN or internet dependency. -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14v-3a9 9 0 0 1 18 0v3M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm18 0h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-5Z"/><path d="M19 21a7 7 0 0 1-7 2"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7a8 8 0 0 0-9-1v14a8 8 0 0 1 9 1 8 8 0 0 1 9-1V6a8 8 0 0 0-9 1Zm0 0v14"/><path d="M6 10h3M15 10h3"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.2a3.1 3.1 0 1 1 5.6 2c-.9 1-2.8 1.4-2.8 3.3M12 18h.01"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.5 19.5 0 0 1-17.7-17.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3.2a2 2 0 0 1-.6 1.7L7 10.6a15.7 15.7 0 0 0 6.4 6.4l2.1-2a2 2 0 0 1 1.7-.6l3.2.5a2 2 0 0 1 1.6 2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 8 10-8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6M8 13h8M8 17h8"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7V5Z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5M12 18h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm6 11v-8h6v8"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6M19 5l-9 9"/><path d="M19 14v5H5V5h5"/></symbol>
+    <symbol id="i-device" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Zm4 0V6a4 4 0 0 1 8 0v2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9a8 8 0 0 1 14-2l1 5M4 12l1 5a8 8 0 0 0 14-2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 13 13 20 3 10V4h6l11 9Z"/><circle cx="7.5" cy="7.5" r="1"/></symbol>
+    <symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 9V5h4m8 0h4v4M4 15v4h4m8 0h4v-4M7 12h10M9 9v6m3-6v6m3-6v6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+    <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10M6.5 5a9 9 0 1 0 11 0"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v12H2V6Zm12 4h4l4 4v4h-8v-8Z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+  </svg>
 
-    <h2>Select a guide:</h2>
-    <div class="list">
-      <a class="item" href="picking.html">
-        <div>
-          <div class="title">How to pick an order</div>
-          <div class="meta">From starting an order to handoff</div>
-        </div>
-        <div class="arrow">›</div>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand-link" href="#/" aria-label="Rynly Help Centre home">
+        <img class="brand-logo" src="assets/images/brand/rynly-wordmark.png" width="2048" height="294" alt="Rynly">
       </a>
-
-      <a class="item" href="picking.html#slide-11">
-        <div>
-          <div class="title">How to substitute items in an order</div>
-          <div class="meta">Deal with all substitution problems that can occur</div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-
-      <a class="item" href="picking.html#slide-32">
-        <div>
-          <div class="title">How to manage specific problems</div>
-          <div class="meta">Including problems that occur with Just Eat, Uber Eats and Chop Chop</div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-    </div>
-
-    <h2>Frequently Asked Questions:</h2>
-    <div class="faq-list">
-      <details>
-        <summary>
-          <span class="summary-text">1. How to identify an order?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>
-            The image below shows how to identify what type of order has been placed by a customer from the Rynly picking app home page.
-          </p>
-          <p>
-            It is important to note which on-demand channel an order has come from, for example Just Eat or Uber Eats, as each channel has its own compatibilities with substitutes, request extra driver and other workflows.
-          </p>
-          <img src="images/FAQ/FAQ1.png" alt="Example showing how to identify an order in the Rynly app" />
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">2. How to keep alerts ringing for new orders?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Please follow the troubleshooting steps below to ensure alerts are ringing on devices:</p>
-          <p>- Volume: check the volume on the handset and in the app, and ensure both are set to maximum.</p>
-          <p>- Keep the app active: the Rynly app must remain open or running in the background at all times.</p>
-          <p>- Do not force close: users should not swipe up on the app, as this fully closes the application and prevents notifications from arriving.</p>
-          <p>- Notification modal: if a device is correctly configured to receive alerts, the "Rynly Hub Alerts Enabled" modal will be visible on the sleep screen and will remain visible persistently, as shown below.</p>
-          <img src="images/FAQ/FAQ2.png" alt="Alerts troubleshooting" />
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">3. How to request an extra driver for large orders?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Requesting an extra driver works differently for each channel.</p>
-          <p> - Just Eat: These orders will automatically call out an extra driver for large orders, Just Eat will call to inform the store.</p>
-          <p>   If no extra driver shows up for the order, please call Just Eat on the line: 0208 736 2000</p>
-
-          <p> - Deliveroo: Please call Deliveroo support on the line 020 3699 9977</p>
-         <!-- <img src="images/FAQ/FAQ3.png" alt="Just Eat extra driver instructions" /> -->
-
-          <p> - Uber Eats: please follow the directions below.</p>
-          <img src="images/FAQ/FAQ4.png" alt="Uber Eats extra driver instructions" />
-
-          <p> - Chop Chop:  A single courier is automatically requested for a Chop Chop order once both the order has been accepted and there are less than 4 items remaining to be picked. Once this happens it is possible to request an extra driver. Please follow the directions below as to how to manage this. </p>
-          <img src="images/FAQ/FAQ5.png" alt="Chop Chop extra driver instructions" />
-
-           <p> - Deliveroo: Please call the support line on: 020 3699 9977</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">4. How to clear old hanging/stuck orders?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>
-          Please select the hanging order (with the correct picking account assigned to that order) and follow the instructions provided. Note, all items must be marked as picked or unavalible or substituted then mark the order as COMPLETED.</p>
-          <p>Most common hanging order type:</p>
-          <img src="images/FAQ/FAQ8.png" alt="JET hanging orders" />
-          <p>If it is not possible to remove the old order by following any of the above instructions, please contact support.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">5. What to do if an order receives a Chop Chop payment failure?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Please follow the steps below.</p>
-          <img src="images/FAQ/FAQ18.png" alt="CCPAYMENTFAILURE" />
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">6. How can I cancel an order?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Please follow the steps below.</p>
-          <img src="images/FAQ/FAQ9.png" alt="Cancel an order" />
-          <p>Support lines can be found in the below FAQ.</p>
-        </div>
-      </details>
-
-    <details>
-      <summary>
-        <span class="summary-text">7. How can I close/stop on-demand orders at my store?</span>
-        <span class="dropdown-arrow">⌄</span>
-      </summary>
-    
-      <div class="answer">
-        <p>To close any on-demand services, please follow the guidance listed in the <strong>contingency procedure</strong>.</p>
-    
-        <div style="background: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; padding: 12px 14px; margin: 12px 0;">
-          <p style="margin-top: 0;"><strong>To access the contingency procedure information please go to this link on a seperate device:</strong></p>
-    
-          <p style="font-family: monospace; font-size: 14px; line-height: 1.5; word-break: break-all; margin-bottom: 0;">
-            https://jsainsbury.sharepoint.com/:w:/r/sites/DocCentre/Retail-Procedures/_layouts/15/Doc.aspx?sourcedoc=%7BE4D2EC1A-CB7B-45F6-A1DE-2C70D4E3E12A%7D&file=OnDemand_Contingency%20Procedure.docx&action=default&mobileredirect=true
-          </p>
-        </div>
-        <p> </p>
-        <p>If the contingency procedure cannot be found, please call the Just Eat, Deliveroo support lines individually.</p>
-        <p>For Chop Chop orders please call the JS Tech Service Desk</p>
-        
-        <p>Uber Eats orders on the Rynly app can be closed by selecting the tab shown below and "Take Store Offline".</p>
-    
-        <img 
-          src="images/FAQ/FAQ12.png" 
-          alt="Uber Eats Offline" 
-          style="width: 50%; max-width: 100%; height: auto; display: block; margin: 12px 0;"
-        />
-
-        <p> </p>
-        <p>If the store is running into network issues and cannot access this button, please call the Uber support line too.</p>
-        <p> </p>
-        <p><strong>NOTE:</strong> The Rynly support team <Strong>cannot</Strong> take a store offline from on-demand orders. Please follow the instructions above to do so.</p>
-      </div>
-    </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">8. How to contact support?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>- Just Eat support: 0208 736 2000</p>
-          <p>- Uber Eats support: 0808 178 5518</p>
-          <p>- Deliveroo Support: 020 3699 9977</p>
-          <p>- Chop Chop support: 0333 070 3602</p>
-          <p>- JS Tech Service Desk (STSD): 0345 603 2638</p>
-          <p>
-            <a href="mailto:support@rynly.com">support@rynly.com</a>
-          <p class="important-note">
-            Please note, for extra drivers or taking a store offline from on demand orders, please call the dedicated Chop Chop/Just Eat/Uber Eats/Deliveroo channel phone lines.
-          </p>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">9. How to pick multiple orders at the same time? (Batch Picking)</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Please follow the slides below for efficient picking, making use of the batch picking functionality.</p>
-           <img src="images/FAQ/FAQ14.png" alt="BatchPicking1" />
-           <img src="images/FAQ/FAQ15.png" alt="BatchPicking2" />
-           <img src="images/FAQ/FAQ16.png" alt="BatchPicking3" />
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">10. How to use pick scan pack scan for an order?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-          <p>Please note, this question only applies to specific Sainsbury's stores with this functionality enabled.</p>
-           <img src="images/FAQ/FAQ6.png" alt="Chop Chop extra driver instructions" />
-           <img src="images/FAQ/FAQ7.png" alt="Chop Chop extra driver instructions" />
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          <span class="summary-text">11. How to locate the account signed in on each device?</span>
-          <span class="dropdown-arrow">⌄</span>
-        </summary>
-        <div class="answer">
-           <img src="images/FAQ/FAQ10.png" alt="Settings page" />
-        </div>
-      </details>
-    </div>
-
-    <div class="footer">
-      Tip: Use the device back button to return here.
-    </div>
+      <a class="site-title" href="#/" aria-label="Help Centre home">Help Centre</a>
+    </header>
+    <section class="search-region" aria-label="Search the Help Centre">
+      <form id="help-search" class="search-form" role="search" autocomplete="off">
+        <label class="sr-only" for="site-search">Search help articles and guides</label>
+        <svg class="icon search-icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <input id="site-search" type="search" role="combobox" aria-autocomplete="list"
+               aria-controls="search-results" aria-expanded="false" aria-label="Search help articles and guides"
+               enterkeyhint="search" autocapitalize="off" autocomplete="off" spellcheck="false"
+               placeholder="Search help, guides and issues">
+        <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+      </form>
+      <ul id="search-results" class="search-results" role="listbox" aria-label="Search results" hidden></ul>
+      <p id="search-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+    <main id="app" class="main-content" tabindex="-1" aria-live="off"><p class="content-loading" role="status">Loading Help Centre…</p></main>
+    <footer class="site-footer">
+      <span class="footer-brand"><img src="assets/images/brand/rynly-badge-teal500.svg" width="26" height="26" alt="" aria-hidden="true"><span>Rynly Picking App</span></span>
+      <a href="#/">Help Centre</a>
+    </footer>
   </div>
 
-  <script>
-    document.querySelectorAll("details").forEach((detail) => {
-      const arrow = detail.querySelector(".dropdown-arrow");
-
-      if (!arrow) return;
-
-      const updateArrow = () => {
-        arrow.textContent = detail.open ? "⌃" : "⌄";
-      };
-
-      updateArrow();
-      detail.addEventListener("toggle", updateArrow);
-    });
-  </script>
+  <noscript><p class="noscript">JavaScript is required to display this Help Centre. Please enable JavaScript in your browser.</p></noscript>
 </body>
 </html>

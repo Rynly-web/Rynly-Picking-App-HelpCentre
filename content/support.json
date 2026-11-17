@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "published": true,
+      "name": "JS Tech Service Desk",
+      "phone": "0345 603 2638",
+      "description": "General store issues, or when all marketplaces are down or need to be switched off.",
+      "id": "js-tech"
+    },
+    {
+      "published": true,
+      "name": "Just Eat",
+      "phone": "0208 736 2000",
+      "description": "Extra courier requests or issues with Just Eat orders.",
+      "id": "just-eat"
+    },
+    {
+      "published": true,
+      "name": "Uber Eats",
+      "phone": "0808 178 5518",
+      "description": "Extra courier requests or issues with Uber Eats orders.",
+      "id": "uber-eats"
+    },
+    {
+      "published": true,
+      "name": "Deliveroo",
+      "phone": "020 3699 9977",
+      "description": "Extra courier requests or issues with Deliveroo orders.",
+      "id": "deliveroo"
+    },
+    {
+      "published": true,
+      "name": "Chop Chop",
+      "phone": "0333 070 3602",
+      "description": "Extra courier requests or issues with Chop Chop orders.",
+      "id": "chop-chop"
+    }
+  ],
+  "supportEmail": "support@rynly.com",
+  "supportEmailNote": "For unresolved technical issues when other support options have been exhausted.\n\nPlease CC ondemand@sainsburys.co.uk when contacting support via email.",
+  "operationalReminderTitle": "Operational reminder",
+  "operationalReminderText": "For extra drivers or taking a store offline, use the dedicated marketplace support contacts and approved procedures; Rynly support cannot take the store offline."
+}
